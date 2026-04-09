@@ -17,6 +17,7 @@ router.get('/getUsers', (req, res) => {
 
 router.post('/createUser', (req, res) => {
     try{
+        console.log("test log..")
         let userName = req.body.name;
         res.status(200).json({message: "success", user: userName});
     }
