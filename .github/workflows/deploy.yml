@@ -14,5 +14,11 @@ jobs:
       - name: Step 1 - Checkout Code
         uses: actions/checkout@v3
 
-      - name: Step 2 - Test Pipeline
-        run: echo "Pipeline is working 🚀"
+      - name: Step 2 - SSH into EC2 and Run Command
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: 16.171.23.239
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            echo "Connected to EC2 successfully 🚀"
